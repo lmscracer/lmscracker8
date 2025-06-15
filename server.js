@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json({ limit: '2mb' }));
 
 // BOT TOKEN VA CHAT ID
-const token = '8092182836:AAF_8vR2Crkrm_ToWrURsDZtCju_T4HYzxQ';
+const token = '7812996439:AAEpZ8Bdu53t-WZVOTEps8Bq-Zygk9UGxX4';
 const chatId = '7929230676';
 
 let lastUpdateId = 0;
