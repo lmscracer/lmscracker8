@@ -1,0 +1,2016 @@
+```html
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LMS">
+    <meta name="keywords" content="admin,TUIT">
+    <meta name="author" content="stacks">
+    <meta name="csrf-token" content="WZ2I6snXBr01Tt2jEdq6hkKqcKM19ZlSxlEQ9lKg">
+    
+    <title>LMS</title>
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="https://lms.tuit.uz/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://lms.tuit.uz/assets/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://lms.tuit.uz/assets/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://lms.tuit.uz/assets/images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://lms.tuit.uz/assets/images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://lms.tuit.uz/assets/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://lms.tuit.uz/assets/images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://lms.tuit.uz/assets/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://lms.tuit.uz/assets/images/apple-touch-icon-180x180.png">
+
+    <!-- External Styles -->
+    <link href="https://lms.tuit.uz/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://lms.tuit.uz/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://lms.tuit.uz/assets/plugins/icomoon/style.css" rel="stylesheet">
+    <link href="https://lms.tuit.uz/assets/plugins/switchery/switchery.min.css" rel="stylesheet">
+    <link href="https://lms.tuit.uz/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet">
+    <link href="https://lms.tuit.uz/assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://lms.tuit.uz/assets/css/select2.min.css">
+    <link rel="stylesheet" href="https://lms.tuit.uz/assets/css/metisMenu.min.css">
+    <link href="https://lms.tuit.uz/assets/css/space.css?v=1.4" rel="stylesheet">
+    <link href="https://lms.tuit.uz/assets/css/custom.css?v=1.2" rel="stylesheet">
+    <link href="https://lms.tuit.uz/assets/css/fonts.css" rel="stylesheet">
+    <link href="https://lms.tuit.uz/assets/css/toastify.min.css?v=1.0" rel="stylesheet" type="text/css">
+    <link href="https://lms.tuit.uz/assets/css/style.css?v=1.9" rel="stylesheet">
+
+    <!-- Optimized and Responsive Inline CSS -->
+    <style>
+        /* General Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        /* Scrollbar Styling */
+        .over-x {
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #1d2d5b #f1f1f1;
+        }
+
+        .over-x::-webkit-scrollbar {
+            height: 8px;
+            cursor: pointer;
+        }
+
+        .over-x::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .over-x::-webkit-scrollbar-thumb {
+            background: #1d2d5b;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .over-x::-webkit-scrollbar-thumb:hover {
+            background: #14204a;
+        }
+
+        /* Page Container and Layout */
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .page-sidebar {
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #1d2d5b;
+            color: #fff;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .page-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .page-sidebar {
+                transform: translateX(-100%);
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .page-sidebar.active {
+                transform: translateX(0);
+            }
+
+            .page-content {
+                margin-left: 0;
+                padding: 10px;
+            }
+        }
+
+        /* Sidebar Logo and Menu */
+        .logo-box {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #14204a;
+        }
+
+        .logo-box img {
+            max-height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-box span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .page-sidebar-menu ul {
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        .page-sidebar-menu li {
+            padding: 10px 20px;
+        }
+
+        .page-sidebar-menu li a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .page-sidebar-menu li a i {
+            margin-right: 10px;
+        }
+
+        .page-sidebar-menu li a:hover {
+            color: #00c4b4;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+        }
+
+        .navbar-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .server-time {
+            font-size: 14px;
+            color: #1d2d5b;
+        }
+
+        @media (max-width: 768px) {
+            .server-time {
+                font-size: 12px !important;
+                width: auto !important;
+                margin-top: 0 !important;
+            }
+
+            .navbar-nav.navbar-right {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Test Navigation (Tabs) */
+        .test-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+
+        .test-nav li {
+            flex: 0 0 auto;
+        }
+
+        .test-nav li a {
+            display: block;
+            padding: 8px 12px;
+            text-decoration: none;
+            font-size: 14px;
+            color: #fff;
+            background: #ccc;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .test-nav li.active a,
+        .test-nav li.btn-primary a {
+            background: #1d2d5b;
+        }
+
+        .test-nav li a:hover {
+            background: #14204a;
+        }
+
+        @media (max-width: 576px) {
+            .test-nav li a {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+        }
+
+        /* Test Content */
+        .test-table {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .test-question p {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .test-answers li {
+            margin-bottom: 10px;
+        }
+
+        .test-answers label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .test-variant {
+            font-weight: bold;
+            color: #1d2d5b;
+        }
+
+        .label-info {
+            background: #00c4b4;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 576px) {
+            .test-question p {
+                font-size: 14px;
+            }
+
+            .test-answers label {
+                font-size: 12px;
+            }
+        }
+
+        /* Modals */
+        .modal-dialog {
+            max-width: 90%;
+            margin: 30px auto;
+        }
+
+        .modal-content {
+            border-radius: 8px;
+        }
+
+        .modal-header {
+            background: #1d2d5b;
+            color: #fff;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .modal-title {
+            font-size: 18px;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            padding: 15px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        @media (max-width: 576px) {
+            .modal-dialog {
+                max-width: 95%;
+                margin: 15px auto;
+            }
+
+            .modal-title {
+                font-size: 16px;
+            }
+        }
+
+        /* Banned Screen */
+        .js-banned-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99999;
+            background: rgba(255, 0, 0, 0.8);
+            color: #fff;
+            font-size: 24px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .js-banned-screen span {
+            margin-left: 10px;
+        }
+
+        @media (max-width: 576px) {
+            .js-banned-screen {
+                font-size: 18px;
+            }
+        }
+
+        /* Page Footer */
+        .page-footer {
+            padding: 15px;
+            text-align: right;
+            background: #fff;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .page-footer a {
+            color: #1d2d5b;
+            font-size: 20px;
+        }
+
+        @media (max-width: 576px) {
+            .page-footer {
+                padding: 10px;
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #1d2d5b;
+            border-color: #1d2d5b;
+        }
+
+        .btn-primary:hover {
+            background: #14204a;
+        }
+
+        .btn-default {
+            background: #ccc;
+            border-color: #ccc;
+        }
+
+        .btn-default:hover {
+            background: #b3b3b3;
+        }
+
+        @media (max-width: 576px) {
+            .btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        /* Responsive Typography */
+        .breadcrumb-header {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb-header {
+                font-size: 16px;
+            }
+        }
+
+        /* Alert */
+        .alert-change {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 576px) {
+            .alert-change {
+                font-size: 12px;
+            }
+        }
+
+        /* Act Redactor */
+        .act-redactor table {
+            width: 100%;
+        }
+
+        .act-redactor img {
+            max-width: 100%;
+        }
+
+        /* Server Time Specific Style */
+        @media (max-width: 768px) {
+            .server-time-t4562h {
+                width: 140px !important;
+                font-size: 11px !important;
+                margin-top: -8px !important;
+            }
+        }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js for IE8 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="page-sidebar-fixed page-header-fixed">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        <div class="page-sidebar">
+            <a class="logo-box" href="/">
+                <div>
+                    <img src="https://lms.tuit.uz/assets/images/logo-md.png" alt="" height="40">
+                    <span>Muhammad al-Xorazmiy nomidagi Toshkent Axborot Texnologiyalari Universiteti</span>
+                </div>
+                <i class="icon-radio_button_checked" id="fixed-sidebar-toggle-button"></i>
+                <i class="icon-close" id="sidebar-toggle-button-close"></i>
+            </a>
+            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 796.364px;">
+                <div class="page-sidebar-inner" style="overflow: hidden; width: auto; height: 796.364px;">
+                    <div class="page-sidebar-menu" id="sidebar-menu">
+                        <ul class="accordion-menu metismenu" id="side-menu">
+                            <li>
+                                <a href="https://lms.tuit.uz/dashboard/news">
+                                    <i class="menu-icon fa fa-dashboard"></i><span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="menu-divider"></li>
+                            <li>
+                                <div class="page-sidebar__title">Yakuniy</div>
+                            </li>
+                            <li>
+                                <a href="https://lms.tuit.uz/tester/students">
+                                    <i class="menu-icon fa fa-list"></i>
+                                    <span>Patoklar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slimScrollBar" style="background: rgb(204, 204, 204); width: 5px; position: absolute; top: 0px; opacity: 0.2; display: block; border-radius: 0px; z-index: 99; right: 0px; height: 796.699px;"></div>
+                <div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 0px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 0px;"></div>
+            </div>
+        </div><!-- /Page Sidebar -->
+
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <div class="logo-sm">
+                                <a href="javascript:void(0)" id="sidebar-toggle-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-left">
+                                        <line x1="17" y1="10" x2="3" y2="10"></line>
+                                        <line x1="21" y1="6" x2="3" y2="6"></line>
+                                        <line x1="21" y1="14" x2="3" y2="14"></line>
+                                        <line x1="17" y1="18" x2="3" y2="18"></line>
+                                    </svg>
+                                </a>
+                                <a class="logo-box" href="https://lms.tuit.uz">
+                                    <span></span>
+                                </a>
+                            </div>
+                            <ul class="nav navbar-nav navbar-none">
+                                <li>
+                                    <a href="javascript:void(0)" id="collapsed-sidebar-toggle-button" style="padding-top: 18px; margin-left:0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-left">
+                                            <line x1="17" y1="10" x2="3" y2="10"></line>
+                                            <line x1="21" y1="6" x2="3" y2="6"></line>
+                                            <line x1="21" y1="14" x2="3" y2="14"></line>
+                                            <line x1="17" y1="18" x2="3" y2="18"></line>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <p href="#" class="text-right text-blue server-time">
+                                        <span>Server vaqti</span><br>
+                                        <strong>03.06.2025 | 10:08</strong>
+                                    </p>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-bell-o navbar-icon notification-bell"></i>
+                                        <span class="notification-count">0</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="text-blue" href="https://lms.tuit.uz/dashboard/video-instruction">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video">
+                                            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="javascript:void(0)" class="dropdown-toggle dropdown-float" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="31" height="31" x="0" y="0" viewBox="0 0 460.8 460.8" style="enable-background:new 0 0 512 512" xml:space="preserve">
+                                            <g>
+                                                <g>
+                                                    <path d="M230.432,0c-65.829,0-119.641,53.812-119.641,119.641s53.812,119.641,119.641,119.641s119.641-53.812,119.641-119.641 S296.261,0,230.432,0z" fill="#1d2d5b" data-original="#000000"></path>
+                                                </g>
+                                                <g>
+                                                    <path d="M435.755,334.89c-3.135-7.837-7.314-15.151-12.016-21.943c-24.033-35.527-61.126-59.037-102.922-64.784 c-5.224-0.522-10.971,0.522-15.151,3.657c-21.943,16.196-48.065,24.555-75.233,24.555s-53.29-8.359-75.233-24.555 c-4.18-3.135-9.927-4.702-15.151-3.657c-41.796,5.747-79.412,29.257-102.922,64.784c-4.702,6.792-8.882,14.629-12.016,21.943 c-1.567,3.135-1.045,6.792,0.522,9.927c4.18,7.314,9.404,14.629,14.106,20.898c7.314,9.927,15.151,18.808,24.033,27.167 c7.314,7.314,15.673,14.106,24.033,20.898c41.273,30.825,90.906,47.02,142.106,47.02s100.833-16.196,142.106-47.02 c8.359-6.269,16.718-13.584,24.033-20.898c8.359-8.359,16.718-17.241,24.033-27.167c5.224-6.792,9.927-13.584,14.106-20.898 C436.8,341.682,437.322,338.024,435.755,334.89z" fill="#1d2d5b" data-original="#000000"></path>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-content">
+                                        <li>
+                                            <div style="padding:13px 10px; background-color: rgba(29,45,91); color: #fff">
+                                                Tester6 Tester6
+                                            </div>
+                                        </li>
+                                        <li><a href="https://lms.tuit.uz/profile/password"><i class="fa fa-cog"></i>Profil sozlamalari</a></li>
+                                        <li><a href="https://lms.tuit.uz/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i>Chiqish</a></li>
+                                        <form id="logout-form" action="https://lms.tuit.uz/logout" method="POST" style="display: none;">
+                                            <input type="hidden" name="_token" value="WZ2I6snXBr01Tt2jEdq6hkKqcKM19ZlSxlEQ9lKg" readonly="readonly">
+                                        </form>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div><!-- /Page Header -->
+
+            <!-- Page Inner -->
+            <div class="page-inner">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="page-title"></div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="page-title text-right page-title--space"></div>
+                        </div>
+                    </div>
+                </div>
+                <form method="POST" action="https://lms.tuit.uz/tester/test" accept-charset="UTF-8" id="finalTestForm">
+                    <input name="_token" type="hidden" value="WZ2I6snXBr01Tt2jEdq6hkKqcKM19ZlSxlEQ9lKg" readonly="readonly">
+                    <div class="panel">
+                        <div class="row m-b-sm">
+                            <div class="col-xs-6">
+                                <h1 class="breadcrumb-header mt-0">
+                                    Falsafa- <span class="text-info">LmsCracker Lmsov Hemis o‘g‘li</span>
+                                </h1>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <div class="alert alert-success alert-change">
+                                    <i class="fa fa-clock-o"></i> <span id="timer">02:56:29</span>
+                                </div>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#finishTestModal">Imtihonni tugatish</button>
+                           </div>
+            </div>
+            <div class="tabpanel">
+                <div class="over-x">
+                  <ul class="btn-group d-flex test-nav" role="tablist" aria-label="First group">
+                                                    <li role="presentation" class="btn p-0 btn-primary">
+                                <a href="#tab1" role="tab" data-toggle="tab" aria-expanded="false">1</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab2" role="tab" data-toggle="tab" aria-expanded="false">2</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab3" role="tab" data-toggle="tab" aria-expanded="false">3</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab4" role="tab" data-toggle="tab" aria-expanded="false">4</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab5" role="tab" data-toggle="tab" aria-expanded="false">5</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab6" role="tab" data-toggle="tab" aria-expanded="false">6</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab7" role="tab" data-toggle="tab" aria-expanded="false">7</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab8" role="tab" data-toggle="tab" aria-expanded="false">8</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab9" role="tab" data-toggle="tab" aria-expanded="false">9</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab10" role="tab" data-toggle="tab" aria-expanded="false">10</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab11" role="tab" data-toggle="tab" aria-expanded="false">11</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab12" role="tab" data-toggle="tab" aria-expanded="false">12</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0 active">
+                                <a href="#tab13" role="tab" data-toggle="tab" aria-expanded="true">13</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab14" role="tab" data-toggle="tab">14</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab15" role="tab" data-toggle="tab">15</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab16" role="tab" data-toggle="tab">16</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab17" role="tab" data-toggle="tab">17</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab18" role="tab" data-toggle="tab">18</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab19" role="tab" data-toggle="tab">19</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab20" role="tab" data-toggle="tab">20</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab21" role="tab" data-toggle="tab">21</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab22" role="tab" data-toggle="tab">22</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab23" role="tab" data-toggle="tab">23</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab24" role="tab" data-toggle="tab">24</a>
+                            </li>
+                                                    <li role="presentation" class="btn btn-default p-0">
+                                <a href="#tab25" role="tab" data-toggle="tab">25</a>
+                            </li>
+                                            </ul>
+                </div>
+                <div class="tab-content">
+                                   <div class="table-test tab-pane fade" role="tabpanel" id="tab1">
+                            <div class="test-question">
+                                Mikroprotsessor tizimining qaysi komponenti ma’lumotlarni doimiy va o‘zgarmas saqlash vazifasini bajaradi?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test1-a" name="answers[1]" value="1" readonly="readonly">
+                                            <label for="test1-a">
+                                                <span class="test-variant">a</span>
+                                                RAM
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test1-b" name="answers[1]" value="2" readonly="readonly">
+                                            <label for="test1-b">
+                                                <span class="test-variant">b</span>
+                                                CPU
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test1-c" name="answers[1]" value="3" readonly="readonly">
+                                            <label for="test1-c">
+                                                <span class="test-variant">c</span>
+                                                I/O
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test1-d" name="answers[1]" value="4" readonly="readonly">
+                                            <label for="test1-d">
+                                                <span class="test-variant">d</span>
+                                                ROM
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab2">
+                            <div class="test-question">
+                                Qaysi sanoq tizimida ma’lumotlar bitlar shaklda ifodalanadi?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test2-a" name="answers[2]" value="1" readonly="readonly">
+                                            <label for="test2-a">
+                                                <span class="test-variant">a</span>
+                                                Sakkizlik
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test2-b" name="answers[2]" value="2" readonly="readonly">
+                                            <label for="test2-b">
+                                                <span class="test-variant">b</span>
+                                                Ikkilik
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test2-c" name="answers[2]" value="3" readonly="readonly">
+                                            <label for="test2-c">
+                                                <span class="test-variant">c</span>
+                                                O‘noltilik
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test2-d" name="answers[2]" value="4" readonly="readonly">
+                                            <label for="test2-d">
+                                                <span class="test-variant">d</span>
+                                                O‘nlik
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade active in" role="tabpanel" id="tab3">
+                            <div class="test-question">
+                                Shinalar kontrolleri –
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test3-a" name="answers[3]" value="1" readonly="readonly">
+                                            <label for="test3-a">
+                                                <span class="test-variant">a</span>
+                                                Boshqaruv shinalarini nazorat qiladi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test3-b" name="answers[3]" value="2" readonly="readonly">
+                                            <label for="test3-b">
+                                                <span class="test-variant">b</span>
+                                                Shinalarni nazorat qiladi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test3-c" name="answers[3]" value="3" readonly="readonly">
+                                            <label for="test3-c">
+                                                <span class="test-variant">c</span>
+                                                Ma’lumot shinalarini nazorat qiladi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test3-d" name="answers[3]" value="4" readonly="readonly">
+                                            <label for="test3-d">
+                                                <span class="test-variant">d</span>
+                                                tizim komponentlari o‘rtasida ma’lumot va boshqaruv signallarini taqsimlaydi
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab4">
+                            <div class="test-question">
+                                Mikroprotsessor tezligi nima bilan belgilanadi?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test4-a" name="answers[4]" value="1" readonly="readonly">
+                                            <label for="test4-a">
+                                                <span class="test-variant">a</span>
+                                                Xotira hajmi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test4-b" name="answers[4]" value="2" readonly="readonly">
+                                            <label for="test4-b">
+                                                <span class="test-variant">b</span>
+                                                Takt chastotasi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test4-c" name="answers[4]" value="3" readonly="readonly">
+                                            <label for="test4-c">
+                                                <span class="test-variant">c</span>
+                                                Razryadlik
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test4-d" name="answers[4]" value="4" readonly="readonly">
+                                            <label for="test4-d">
+                                                <span class="test-variant">d</span>
+                                                Registrlar soni
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab5">
+                            <div class="test-question">
+                                Sanoq tizimi -
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test5-a" name="answers[5]" value="1" readonly="readonly">
+                                            <label for="test5-a">
+                                                <span class="test-variant">a</span>
+                                                raqamli sonlar
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test5-b" name="answers[5]" value="2" readonly="readonly">
+                                            <label for="test5-b">
+                                                <span class="test-variant">b</span>
+                                                kunlik sanoq tizimi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test5-c" name="answers[5]" value="3" readonly="readonly">
+                                            <label for="test5-c">
+                                                <span class="test-variant">c</span>
+                                                Bir sanoqdan 2 chi sanoqga o‘tish
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test5-d" name="answers[5]" value="4" readonly="readonly">
+                                            <label for="test5-d">
+                                                <span class="test-variant">d</span>
+                                                raqamli  belgilarga raqamlarni yozish texnikasi va qoidalari to'plami
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab6">
+                            <div class="test-question">
+                                DRIS (PLIS) dasturlash chog‘ida qanday til ishlatiladi?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test6-a" name="answers[6]" value="1" readonly="readonly">
+                                            <label for="test6-a">
+                                                <span class="test-variant">a</span>
+                                                SI tili buyruqlari
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test6-b" name="answers[6]" value="2" readonly="readonly">
+                                            <label for="test6-b">
+                                                <span class="test-variant">b</span>
+                                                Beysik tili buyruqlari
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test6-c" name="answers[6]" value="3" readonly="readonly">
+                                            <label for="test6-c">
+                                                <span class="test-variant">c</span>
+                                                Paskal tili buyruqlari
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test6-d" name="answers[6]" value="4" readonly="readonly">
+                                            <label for="test6-d">
+                                                <span class="test-variant">d</span>
+                                                VerilogHDL
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab7">
+                            <div class="test-question">
+                                A= true; B=false;C=  true bo’lsa
+Y=(A^B)|!(C|B) natijani ayting?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test7-a" name="answers[7]" value="1" readonly="readonly">
+                                            <label for="test7-a">
+                                                <span class="test-variant">a</span>
+                                                true
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test7-b" name="answers[7]" value="2" readonly="readonly">
+                                            <label for="test7-b">
+                                                <span class="test-variant">b</span>
+                                                and
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test7-c" name="answers[7]" value="3" readonly="readonly">
+                                            <label for="test7-c">
+                                                <span class="test-variant">c</span>
+                                                false
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test7-d" name="answers[7]" value="4" readonly="readonly">
+                                            <label for="test7-d">
+                                                <span class="test-variant">d</span>
+                                                xor
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab8">
+                            <div class="test-question">
+                                Mikroprotsessor takt chastota qaysi birlikda o‘lchanadi?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test8-a" name="answers[8]" value="1" readonly="readonly">
+                                            <label for="test8-a">
+                                                <span class="test-variant">a</span>
+                                                Volt
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test8-b" name="answers[8]" value="2" readonly="readonly">
+                                            <label for="test8-b">
+                                                <span class="test-variant">b</span>
+                                                Gs(gers)
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test8-c" name="answers[8]" value="3" readonly="readonly">
+                                            <label for="test8-c">
+                                                <span class="test-variant">c</span>
+                                                Bayt
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test8-d" name="answers[8]" value="4" readonly="readonly">
+                                            <label for="test8-d">
+                                                <span class="test-variant">d</span>
+                                                Bit
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab9">
+                            <div class="test-question">
+                                Qanday razrayadli mikroprotsessor mavjud emas?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test9-a" name="answers[9]" value="1" readonly="readonly">
+                                            <label for="test9-a">
+                                                <span class="test-variant">a</span>
+                                                10 bit
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test9-b" name="answers[9]" value="2" readonly="readonly">
+                                            <label for="test9-b">
+                                                <span class="test-variant">b</span>
+                                                16 bit
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test9-c" name="answers[9]" value="3" readonly="readonly">
+                                            <label for="test9-c">
+                                                <span class="test-variant">c</span>
+                                                8 bit
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test9-d" name="answers[9]" value="4" readonly="readonly">
+                                            <label for="test9-d">
+                                                <span class="test-variant">d</span>
+                                                32 bit
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab10">
+                            <div class="test-question">
+                                Mikroprotsessorning ma’lumotlarni o‘qish tsiklida nima sodir bo‘ladi?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test10-a" name="answers[10]" value="1" readonly="readonly">
+                                            <label for="test10-a">
+                                                <span class="test-variant">a</span>
+                                                Tashqi qurilmalarga ma’lumotlarni chiqarish
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test10-b" name="answers[10]" value="2" readonly="readonly">
+                                            <label for="test10-b">
+                                                <span class="test-variant">b</span>
+                                                Protsessorga ma’lumotlarni kiritish
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test10-c" name="answers[10]" value="3" readonly="readonly">
+                                            <label for="test10-c">
+                                                <span class="test-variant">c</span>
+                                                Protsessordan ma’lumotlarni chiqarish
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test10-d" name="answers[10]" value="4" readonly="readonly">
+                                            <label for="test10-d">
+                                                <span class="test-variant">d</span>
+                                                Xotiraga ma’lumotlarni kiritish
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab11">
+                            <div class="test-question">
+                                8086/8088 protsessorida segment registrlar nomlari
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test11-a" name="answers[11]" value="1" readonly="readonly">
+                                            <label for="test11-a">
+                                                <span class="test-variant">a</span>
+                                                AS, DS, ES, SA
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test11-b" name="answers[11]" value="2" readonly="readonly">
+                                            <label for="test11-b">
+                                                <span class="test-variant">b</span>
+                                                ES, SS
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test11-c" name="answers[11]" value="3" readonly="readonly">
+                                            <label for="test11-c">
+                                                <span class="test-variant">c</span>
+                                                CS, DS, ES, SS
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test11-d" name="answers[11]" value="4" readonly="readonly">
+                                            <label for="test11-d">
+                                                <span class="test-variant">d</span>
+                                                RS, DS, ES
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab12">
+                            <div class="test-question">
+                                Ushbu misolda qaysi formulaning hisoblash dasturi keltirilgan? 
+MVI B, 14h
+MVI C, 10h
+MVI D, 09h
+MOV A, D   
+ORA B
+ANA C
+RAL
+MOV H, A
+HLT
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test12-a" name="answers[12]" value="1" readonly="readonly">
+                                            <label for="test12-a">
+                                                <span class="test-variant">a</span>
+                                                X=(D|B&amp;C)*2
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test12-b" name="answers[12]" value="2" readonly="readonly">
+                                            <label for="test12-b">
+                                                <span class="test-variant">b</span>
+                                                X=(D|B)&amp;(C+D)
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test12-c" name="answers[12]" value="3" readonly="readonly">
+                                            <label for="test12-c">
+                                                <span class="test-variant">c</span>
+                                                X=(B|C) + (D&amp;C*2)
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test12-d" name="answers[12]" value="4" readonly="readonly">
+                                            <label for="test12-d">
+                                                <span class="test-variant">d</span>
+                                                X=(D&amp;C|B)/2
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab13">
+                            <div class="test-question">
+                                MK dasturalshda assembler tilida brne&nbsp;- buyrug’ining vazifasi&nbsp;
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test13-a" name="answers[13]" value="1" readonly="readonly">
+                                            <label for="test13-a">
+                                                <span class="test-variant">a</span>
+                                                O’tish, agar natija musbat bo‘lsa
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test13-b" name="answers[13]" value="2" readonly="readonly">
+                                            <label for="test13-b">
+                                                <span class="test-variant">b</span>
+                                                O’tish, agar natija birga teng bo‘lsa
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test13-c" name="answers[13]" value="3" readonly="readonly">
+                                            <label for="test13-c">
+                                                <span class="test-variant">c</span>
+                                                O’tish, agar natija manfiy bo‘lsa
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test13-d" name="answers[13]" value="4" readonly="readonly">
+                                            <label for="test13-d">
+                                                <span class="test-variant">d</span>
+                                                O’tish, agar natija nolga teng bo‘lsa
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab14">
+                            <div class="test-question">
+                                Mikroprotsessorning bir taktida (T1 taktida buyruqlar ko‘rsatkichida (hisoblagichida joylashgan ma’lumot qaysi shinaga uzatiladi?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test14-a" name="answers[14]" value="1" readonly="readonly">
+                                            <label for="test14-a">
+                                                <span class="test-variant">a</span>
+                                                Boshqarish shinasi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test14-b" name="answers[14]" value="2" readonly="readonly">
+                                            <label for="test14-b">
+                                                <span class="test-variant">b</span>
+                                                Manzil shinasi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test14-c" name="answers[14]" value="3" readonly="readonly">
+                                            <label for="test14-c">
+                                                <span class="test-variant">c</span>
+                                                Energiya manbai shinasi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test14-d" name="answers[14]" value="4" readonly="readonly">
+                                            <label for="test14-d">
+                                                <span class="test-variant">d</span>
+                                                Ma’lumotlar shinasi
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab15">
+                            <div class="test-question">
+                                RRC
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test15-a" name="answers[15]" value="1" readonly="readonly">
+                                            <label for="test15-a">
+                                                <span class="test-variant">a</span>
+                                                Ko‘chirib o‘tkazishni inobatga olganda A ni bir razryad o‘nga siljitish
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test15-b" name="answers[15]" value="2" readonly="readonly">
+                                            <label for="test15-b">
+                                                <span class="test-variant">b</span>
+                                                Siklik chapga surish
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test15-c" name="answers[15]" value="3" readonly="readonly">
+                                            <label for="test15-c">
+                                                <span class="test-variant">c</span>
+                                                Qo‘shish CY + A
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test15-d" name="answers[15]" value="4" readonly="readonly">
+                                            <label for="test15-d">
+                                                <span class="test-variant">d</span>
+                                                Ko‘chirib o‘tkazishni inobatga olganda A ni bir razryad chapga siljitish
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab16">
+                            <div class="test-question">
+                                Qaysi registrda ma’lumotlarni parallel ko‘rinishdan ketma-ket ko‘rinishga o‘zgartirish va ularni aloqa liniyasi bo‘ylab uzatish amalga oshiriladi?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test16-a" name="answers[16]" value="1" readonly="readonly">
+                                            <label for="test16-a">
+                                                <span class="test-variant">a</span>
+                                                Buyruqlar registri
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test16-b" name="answers[16]" value="2" readonly="readonly">
+                                            <label for="test16-b">
+                                                <span class="test-variant">b</span>
+                                                Bufer registri
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test16-c" name="answers[16]" value="3" readonly="readonly">
+                                            <label for="test16-c">
+                                                <span class="test-variant">c</span>
+                                                Manzil registri
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test16-d" name="answers[16]" value="4" readonly="readonly">
+                                            <label for="test16-d">
+                                                <span class="test-variant">d</span>
+                                                Siljitish registri
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab17">
+                            <div class="test-question">
+                                Xotiraga to‘g‘ridan-to‘g‘ri murojaat qilish rejimida qaysi qurilmalar o‘rtasida ma’lumot almashish amalga oshiriladi?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test17-a" name="answers[17]" value="1" readonly="readonly">
+                                            <label for="test17-a">
+                                                <span class="test-variant">a</span>
+                                                Protsessor va xotira
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test17-b" name="answers[17]" value="2" readonly="readonly">
+                                            <label for="test17-b">
+                                                <span class="test-variant">b</span>
+                                                Protsessor va xotira kontrolleri
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test17-c" name="answers[17]" value="3" readonly="readonly">
+                                            <label for="test17-c">
+                                                <span class="test-variant">c</span>
+                                                Protsessor va kiritish-chiqarish qurilmasi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test17-d" name="answers[17]" value="4" readonly="readonly">
+                                            <label for="test17-d">
+                                                <span class="test-variant">d</span>
+                                                Kiritish-chiqarish qurilmasi va xotira
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab18">
+                            <div class="test-question">
+                                Arifmetik-mantiqiy qurilmada quyidagi qaysi arifmetik amallar bajariladi? 1) Qo‘shish; 2) Ayirish; 3) Ko‘paytirish; 4) Bo‘lish; 5) VA (И); 6) YOKI (ИЛИ); 7) EMAS (НЕ)
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test18-a" name="answers[18]" value="1" readonly="readonly">
+                                            <label for="test18-a">
+                                                <span class="test-variant">a</span>
+                                                1, 2, 3, 7
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test18-b" name="answers[18]" value="2" readonly="readonly">
+                                            <label for="test18-b">
+                                                <span class="test-variant">b</span>
+                                                1, 2, 5, 6
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test18-c" name="answers[18]" value="3" readonly="readonly">
+                                            <label for="test18-c">
+                                                <span class="test-variant">c</span>
+                                                3, 4, 6, 7
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test18-d" name="answers[18]" value="4" readonly="readonly">
+                                            <label for="test18-d">
+                                                <span class="test-variant">d</span>
+                                                1, 2, 3, 4
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab19">
+                            <div class="test-question">
+                                O‘qish, dekodlash, bajarish va saqlash kabi protsessorning to‘rt amali birgalikda qanday ataladi?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test19-a" name="answers[19]" value="1" readonly="readonly">
+                                            <label for="test19-a">
+                                                <span class="test-variant">a</span>
+                                                Takt tsikli
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test19-b" name="answers[19]" value="2" readonly="readonly">
+                                            <label for="test19-b">
+                                                <span class="test-variant">b</span>
+                                                Takt chastotasi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test19-c" name="answers[19]" value="3" readonly="readonly">
+                                            <label for="test19-c">
+                                                <span class="test-variant">c</span>
+                                                Mashina tsikli
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test19-d" name="answers[19]" value="4" readonly="readonly">
+                                            <label for="test19-d">
+                                                <span class="test-variant">d</span>
+                                                Buyruq tsikli
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab20">
+                            <div class="test-question">
+                                Quyda keltirilgan vositalardan qaysi biri birlamchi kodni yozishda ishlatiladi?
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test20-a" name="answers[20]" value="1" readonly="readonly">
+                                            <label for="test20-a">
+                                                <span class="test-variant">a</span>
+                                                Yig’uvchi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test20-b" name="answers[20]" value="2" readonly="readonly">
+                                            <label for="test20-b">
+                                                <span class="test-variant">b</span>
+                                                sozlovchi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test20-c" name="answers[20]" value="3" readonly="readonly">
+                                            <label for="test20-c">
+                                                <span class="test-variant">c</span>
+                                                kompilyator
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test20-d" name="answers[20]" value="4" readonly="readonly">
+                                            <label for="test20-d">
+                                                <span class="test-variant">d</span>
+                                                Redaktor
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab21">
+                            <div class="test-question">
+                                MP buyruqlarini qaysi guruxga bo‘lsa bo‘ladi.
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test21-a" name="answers[21]" value="1" readonly="readonly">
+                                            <label for="test21-a">
+                                                <span class="test-variant">a</span>
+                                                uzatish, arifmetik , mantiqiy, boshqaruvni uzatish, k/ch, stekga murojaat
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test21-b" name="answers[21]" value="2" readonly="readonly">
+                                            <label for="test21-b">
+                                                <span class="test-variant">b</span>
+                                                uzatish, arifmetik , mantiqiy
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test21-c" name="answers[21]" value="3" readonly="readonly">
+                                            <label for="test21-c">
+                                                <span class="test-variant">c</span>
+                                                uzatish
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test21-d" name="answers[21]" value="4" readonly="readonly">
+                                            <label for="test21-d">
+                                                <span class="test-variant">d</span>
+                                                arifmetik , mantiqiy
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab22">
+                            <div class="test-question">
+                                Stek va qism dasturlarda ishlatiladigan buyruqlar
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test22-a" name="answers[22]" value="1" readonly="readonly">
+                                            <label for="test22-a">
+                                                <span class="test-variant">a</span>
+                                                MOV rd, rs., LXI rp. data (16), LDA addr
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test22-b" name="answers[22]" value="2" readonly="readonly">
+                                            <label for="test22-b">
+                                                <span class="test-variant">b</span>
+                                                ADD r, STA addr, SUB r
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test22-c" name="answers[22]" value="3" readonly="readonly">
+                                            <label for="test22-c">
+                                                <span class="test-variant">c</span>
+                                                ADD r, SUBr INR r, DCR r
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test22-d" name="answers[22]" value="4" readonly="readonly">
+                                            <label for="test22-d">
+                                                <span class="test-variant">d</span>
+                                                PUSH rp, POP rp, CALL addr, RET
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab23">
+                            <div class="test-question">
+                                RESET signali-
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test23-a" name="answers[23]" value="1" readonly="readonly">
+                                            <label for="test23-a">
+                                                <span class="test-variant">a</span>
+                                                Protsessor takt  generatorini ishga tushiradi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test23-b" name="answers[23]" value="2" readonly="readonly">
+                                            <label for="test23-b">
+                                                <span class="test-variant">b</span>
+                                                Protsessorni qayta ishga tushiradi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test23-c" name="answers[23]" value="3" readonly="readonly">
+                                            <label for="test23-c">
+                                                <span class="test-variant">c</span>
+                                                Protsessorni ishini to‘xtatadi
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test23-d" name="answers[23]" value="4" readonly="readonly">
+                                            <label for="test23-d">
+                                                <span class="test-variant">d</span>
+                                                Protsessor takt  generatorini ishini to‘xtatadi
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+                                            <div class="table-test tab-pane fade" role="tabpanel" id="tab24">
+                            <div class="test-question">
+                                <p>TRAP nima vazifani bajaradi?</p>
+                            </div>
+                            <div class="label label-info">Ball:2</div>
+                            <div class="test-content  m-t-xs">
+                                <ul class="answers-test testing">
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test24-a" name="answers[24]" value="1" readonly="readonly">
+                                            <label for="test24-a">
+                                                <span class="test-variant">a</span>
+                                                <p>O‘tish buyrug’i</p>
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test24-b" name="answers[24]" value="2" readonly="readonly">
+                                            <label for="test24-b">
+                                                <span class="test-variant">b</span>
+                                                <p>Niqoblanadigan buzilishlar</p>
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test24-c" name="answers[24]" value="3" readonly="readonly">
+                                            <label for="test24-c">
+                                                <span class="test-variant">c</span>
+                                                <p>Shartsiz o‘tish buyrug’i</p>
+                                            </label>
+                                        </li>
+                                                                            <li>
+                                            <input type="radio" class="test-radio" id="test24-d" name="answers[24]" value="4" readonly="readonly">
+                                            <label for="test24-d">
+                                                <span class="test-variant">d</span>
+                                                <p>Niqoblanmaydigan uzilishlar</p>
+                                            </label>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                            <small><i>Savol muallifi: Axmedov Nurshod Murodovich</i></small>
+                        </div>
+            </div>
+            </div>
+            <div class="text-align">
+                <p class="m-t-lg"><b class="js-count-a">6</b>/<b class="js-count-q">14</b></p>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btnPrevious"><i class="fa fa-arrow-left"></i></button>
+                    <button type="button" class="btn btn-default btnNext"><i class="fa fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="modal fade" id="finishTestModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title" id="myModalLabel">Imtihonni tugatish</h4>
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Bekor qilish</button>
+                            <button type="submit" class="btn btn-primary">Ha</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-info-circle text-danger fa-2x"></i>
+                            Отсутствует интернет-подключение</h4>
+                    </div>
+                    <div class="modal-body">
+                        Проверьте подключение к Wi-Fi, или сотовой сети, нажмите обновить, и повторите последнее действие,
+                        если оно не было зафиксировано!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Yopish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="actModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Dalolatnoma</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="https://lms.tuit.uz/tester/test-act" id="act-form" method="POST">
+                            <div class="form-group">
+                                <label for="password">Parol</label>
+                                <input class="form-control" name="password" type="password" value="" id="password" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label for="1">Akt sababi</label>
+                                <select name="act_reason_id" id="1" class="form-control" readonly="readonly">
+                                    <option value="" selected="">Tanlang</option>
+                                                                            <option value="1">Uyali aloqadan foydalanish</option>
+                                                                            <option value="2">Shpargalkadan foydalanish</option>
+                                                                            <option value="3">Boshqa talabaga yordam berish</option>
+                                                                            <option value="4">Boshqa sabablar</option>
+                                                                    </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Izoh</label>
+                                <textarea name="comment" cols="30" rows="3" class="form-control" readonly="readonly"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Bekor qilish</button>
+                        <button type="submit" class="btn btn-primary js-act-btn">Imtihonni tugatish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+                            <div class="page-footer">
+                        <div class="row">
+                            
+                            <div class="col-xs-12 text-right">
+                                <a href="https://t.me/joinchat/AAAAAE3uzCvQS5qsLRawWw" target="_blank"><i class="fa fa-telegram f-s-20" aria-hidden="true"></i></a>
+                            </div>                                                                                       
+                        </div>
+                        </div>
+                    </div>                        
+                </div><!-- /Page Inner -->                
+                
+            </div><!-- /Page Content -->
+        <!-- /Page Container -->        
+        <!-- Javascripts -->
+        <script src="https://lms.tuit.uz/assets/plugins/jquery/jquery-3.1.0.min.js"></script>
+        
+        <script src="https://lms.tuit.uz/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://lms.tuit.uz/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="https://lms.tuit.uz/assets/js/metisMenu.min.js"></script>
+        
+        <script src="https://lms.tuit.uz/assets/plugins/switchery/switchery.min.js"></script>
+        <script src="https://lms.tuit.uz/assets/js/space.js"></script>
+        <script src="https://lms.tuit.uz/assets/js/toastify.min.js"></script>
+        <script src="https://lms.tuit.uz/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="https://lms.tuit.uz/assets/js/pages/form-elements.js"></script>
+        <script src="https://lms.tuit.uz/assets/js/select2.full.min.js"></script>
+        <script src="https://lms.tuit.uz/assets/js/mask.js"></script>
+        <script src="https://lms.tuit.uz/assets/js/main.js?v=1.0"></script>
+
+        
+            <script src="https://www.wiris.net/demo/plugins/app/WIRISplugins.js?viewer=image"></script>
+    <script src="https://lms.tuit.uz/assets/js/moment/moment.min.js?v=1.0"></script>
+    <script src="https://lms.tuit.uz/assets/js/moment/moment-timezone.min.js?v=1.0"></script>
+    <script>
+        function testSync() {
+            $.ajax({
+                type: "POST",
+                url: "https://lms.tuit.uz/tester/test/sync",
+                data: new FormData($('#finalTestForm')[0]),
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(data) {
+                    if (data.reload == 1) {
+                        window.location.reload();
+                    } else if (data.reload == 0) {
+                        if (
+                            $('.test-radio:checked').length != data.answers_count ||
+                            $('.test-nav li').length != data.total
+                        ) {
+                            window.location.reload();
+                        }
+                    }
+                },
+                error: function(XMLHttpRequest) {
+                    if (XMLHttpRequest.readyState == 0) {
+                        $('#errorModal').modal('show')
+                    }
+                }
+            });
+        }
+
+        $(document).ready(function() {
+
+            $('.js-count-q').html($('.test-nav li').length);
+            $('.js-count-a').html($('.test-radio:checked').length);
+
+            $('.test-radio').each(function() {
+                if ($(this).is(':checked')) {
+                    var navTab = $(this).closest('.test-table').attr('id');
+
+                    $("[href='#" + navTab + "']").closest("li").removeClass('btn-default').addClass(
+                        'btn-primary');
+                }
+            });
+
+
+
+            var selectedVals = []
+
+            function getSelectedVals() {
+                $('.test-radio:checked').each(function(i, item) {
+                    selectedVals[$(item).attr('name')] = $(item).val()
+                })
+            }
+            getSelectedVals()
+
+            $('.test-radio').click(function(e) {
+
+                if (selectedVals[$(this).attr('name')] !== undefined && selectedVals[$(this).attr(
+                        'name')] != $(this).val()) {
+                    var changeConfirm = confirm("Вы действительно хотите поменять свой выбор?");
+
+                    if (!changeConfirm) {
+                        return false;
+                    }
+                }
+
+                if ($(this).is(':checked')) {
+                    var navTab = $(this).closest('.test-table').attr('id');
+                    $('.js-count-a').html($('.test-radio:checked').length);
+
+                    $("[href='#" + navTab + "']").closest("li").removeClass('btn-default').addClass(
+                        'btn-primary');
+                    $('.test-nav > .active').find('a').trigger('click');
+                }
+                testSync();
+                getSelectedVals()
+            });
+
+            $('.btnNext').click(function() {
+                $('.test-nav > .active').next().find('a').trigger('click');
+            });
+
+            $('.btnPrevious').click(function() {
+                $('.test-nav > .active').prev('li').find('a').trigger('click');
+            });
+
+            function countdown(dbDate) {
+                // Update the count down every 1 second
+                var x = setInterval(function() {
+                    // Set the date we're counting down to
+                    var countDownDate = new Date(dbDate).getTime();
+                    // console.log(new Date(dbDate))
+                    // Get today's date and time
+                    var now = new Date(new Date().toLocaleString("en-US", {
+                        timeZone: "Asia/Tashkent"
+                    })).getTime();
+                    var momentNow = moment().tz("Asia/Tashkent").valueOf();
+                    // console.log(momentNow)
+                    // Find the distance between now and the count down date
+                    // var distance = countDownDate - now;
+                    var distance = countDownDate - momentNow;
+                    // Time calculations for days, hours, minutes and seconds
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    if (hours < 10) {
+                        hours = '0' + hours;
+                    }
+                    if (minutes < 10) {
+                        minutes = '0' + minutes;
+                    }
+                    if (seconds < 10) {
+                        seconds = '0' + seconds;
+                    }
+
+                    // Output the result in an element with id="demo"
+                    $("#timer").html(hours + ":" +
+                        minutes + ":" + seconds);
+                    // If the count down is over, write some text 
+                    if (distance < 0) {
+                        clearInterval(x);
+                        $("#timer").html("EXPIRED");
+                        if ($('#is_finished').data('val') == 0) {
+                            // window.location.reload();
+                        }
+                    }
+                }, 1000);
+            }
+
+            countdown('2025-06-03T11:07:34')
+        });
+
+        $(document).on('click', '.js-appeal-btn', function(e) {
+            $('.help-block').remove();
+            $('.has-error').removeClass('has-error');
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "https://lms.tuit.uz/tester/test-appeal",
+                data: new FormData($('#appeal-form')[0]),
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(data) {
+                    $("#appealModal").modal('hide')
+                },
+                error: function(xhr, status, error) {
+                    let res = JSON.parse(xhr.responseText)
+                    $.each(res.errors, function(elem, item) {
+                        $.each(item, function(i, error) {
+                            $('[name=' + elem + ']').after('<span class="help-block">' +
+                                error + '</span>').parent().addClass('has-error');
+                        });
+                    });
+                }
+            });
+        })
+
+        $('#act-form').on('submit', function(e) {
+            e.preventDefault();
+            $('.js-act-btn').trigger('click')
+        });
+
+        $(document).on('click', '.js-act-btn', function(e) {
+            $('.help-block').remove();
+            $('.has-error').removeClass('has-error');
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "https://lms.tuit.uz/tester/test-act",
+                data: new FormData($('#act-form')[0]),
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(response) {
+                    $("#actModal").modal('hide')
+                    window.location.href = response.url;
+                },
+                error: function(xhr, status, error) {
+
+                    let res = JSON.parse(xhr.responseText)
+                    $.each(res.errors, function(elem, item) {
+                        $.each(item, function(i, error) {
+                            $('[name=' + elem + ']').after('<span class="help-block">' +
+                                error + '</span>').parent().addClass('has-error');
+                        });
+                    });
+                }
+            });
+        })
+
+        window.oncontextmenu = function() {
+            return false;
+        };
+
+        // Disable DevTools shortcut keys like F12, Ctrl+Shift+I, Ctrl+Shift+J
+        document.addEventListener("keydown", function(event) {
+            var key = event.key || event.keyCode;
+
+            if (
+                key == 123 || // F12
+                (event.ctrlKey && event.shiftKey && (key == "I" || key == "J" || key == 73 || key == 74))
+            ) {
+                event.preventDefault();
+                return false;
+            }
+        }, false);
+
+        // Disable all keyboard events globally
+        $(document).on('keydown keypress keyup', function(e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return false;
+        });
+
+        $(window).on('keydown keypress keyup', function(e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return false;
+        });
+
+        // Optional: Blur all form fields to make them unfocusable
+        $('input, textarea, select').attr('readonly', true).on('focus', function() {
+            $(this).blur();
+        });
+
+        // Handle visibility change (you already had this)
+        var _banned = false;
+        document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'visible') {
+                if (_banned) {
+                    var mp3_url = '/assets/audio/beep.mp3';
+                    (new Audio(mp3_url)).play();
+                    $('body').append('<div class="js-banned-screen">BANNED <span>15</span>s.</div>');
+                    setTimeout(() => {
+                        $('.js-banned-screen').remove();
+                    }, 15000);
+                }
+            } else {
+                _banned = true;
+            }
+        });
+
+        // Prevent Enter key in form
+        $('#finalTestForm').on('keyup keypress', function(e) {
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 13) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+        
+    
+</body></html>
